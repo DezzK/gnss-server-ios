@@ -17,6 +17,9 @@ official port or official app.
 - Heartbeat timeout: 3 seconds
 - Frame: `[4-byte big-endian payload length][protobuf payload]`
 - Protobuf schema: upstream [`proto/location.proto`](https://github.com/DezzK/gnss-share/blob/main/proto/location.proto)
+- Only fixes with a valid position are sent. Core Location marks an invalid
+  one with a negative `horizontalAccuracy`, which would otherwise go out as an
+  accuracy of 0 m
 - `satellites`: `-1`, because public iOS APIs do not expose the visible/used
   GNSS satellite count
 - Live Activity on the Lock Screen and Dynamic Island shows active
